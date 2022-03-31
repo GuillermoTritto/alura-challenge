@@ -1,14 +1,40 @@
 var campoTexto = document.querySelector("#input-texto");
 var encriptar = document.querySelector("#btn-encriptar");
 var desencriptar = document.querySelector("#btn-desencriptar");
+var caracterErrado = document.querySelector("#error-caracter");
 var resultado = document.querySelector("#msg");
 var btnCopiar = document.querySelector("#btn-copy");
+var caracteresAdmitidos = "qwertyuiopasd fghjklñzxcvbnm,;.:!";
+
+campoTexto.addEventListener("input", function(){
+    var entrada = this.value;
+    if (cadenaValida(entrada)) {
+        btnEncriptar.disabled = false;
+        btnDesencriptar.disabled = false;
+      caracterErrado.classList.add("invisible");
+    } else {
+        btnEncriptar.disabled = true;
+        btnDesencriptar.disabled = true;
+      caracterErrado.classList.remove("invisible");
+    }
+});
+
+function cadenaValida(inputString){
+  var validString = true;
+  for(var x=0; x<inputString.length; x++){
+      if (!caracteresAdmitidos.includes(inputString[x])) {
+        validString = false;
+      }
+    }
+  return validString;
+  }
+
+
 
 encriptar.addEventListener("click", function(event)
 {
     event.preventDefault();
     var mensajeEncriptado = encriptarMensaje(campoTexto.value);
-    console.log(mensajeEncriptado);
     resultado.value = mensajeEncriptado;
 });
 
@@ -75,6 +101,9 @@ function copiar (texto)
    document.execCommand("copy");
 
 }
+
+
+
 
 /* Reglas de encriptación: 
 "e" es convertido para "enter" 

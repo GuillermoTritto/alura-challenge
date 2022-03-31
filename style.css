@@ -1,47 +1,45 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+
 
 body {
-  background-color: lightgray;
+  background-color: #ccd6de;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
 
 .main {
   width: 80vw;
   margin: auto;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .titulo {
-  padding: 15px;
-  width: 30vw;
+  padding: 1em;
   margin: auto;
-
+  font-size: 50px;
+  text-align: center;
+  color: #428bca;
 }
 
 .box {
-  padding: 10px;
-  margin: 0 10px 0 10px;
+  padding: 1em 2em;
+  margin:  10px 0 10px;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-  background-color: orange;
+  background-color: #495b79;
   border-radius: 0.5em;
   width: 30vw;
   height: auto;
 }
 
-.btn {
-  border: 0;
-  color: white;
-  font-weight: bold;
-  background-color: blue;
-  padding: 10px;
-  margin-top: 10px;
-  border-radius: 0.5em;
+main label
+{
+  color: #ccd6de;
+  font-size: 20px;
 }
+
+
 
 .text-input {
   border-radius: 0.5em;
@@ -50,4 +48,51 @@ body {
   padding: 0.5em;
   width: 100%;
   height: 50px;
+}
+
+.btnEncriptar {
+  border: 2px;
+  color: white;
+  font-weight: bold;
+  background-color:#428bca;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 0.5em;
+}
+
+.btnDesencriptar
+{
+  border: 2px;
+  color: #428bca;
+  font-weight: bold;
+  background-color: white;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 0.5em;
+
+}
+
+.mensajeEncriptado
+{
+  color: #ccd6de;
+  font-size: 20px;
+}
+
+.btnCopiar
+{
+  border: 2px;
+  color: #428bca;
+  font-weight: bold;
+  background-color: white;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 0.5em;
+}
+
+.invisible{
+	display:none;
+}
+
+#error-caracter{
+	color:red
 }
