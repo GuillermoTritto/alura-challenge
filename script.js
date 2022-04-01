@@ -7,26 +7,19 @@ var btnCopiar = document.querySelector("#btn-copy");
 encriptar.addEventListener("click", function(event)
 {
     event.preventDefault();
-    console.log(campoTexto.value);
-     console.log(validaMinusculas(campoTexto.value));
    if(validaMinusculas(campoTexto.value))
-{
-    var mensajeEncriptado = encriptarMensaje(campoTexto.value);
-    console.log(mensajeEncriptado);
-    resultado.value = mensajeEncriptado;
-}
-else alert("Solo se pueden ingresar letras minuscula");
+    {
+        var mensajeEncriptado = encriptarMensaje(campoTexto.value);
+        resultado.value = mensajeEncriptado;
+    }
+    else alert("Solo se pueden ingresar letras minuscula");
 });
 
 desencriptar.addEventListener("click", function(event)
 {
     event.preventDefault();
-    
-
     var mensajeDesencriptado = desencriptarMensaje(campoTexto.value);
-    resultado.value = mensajeDesencriptado;
-
-	
+    resultado.value = mensajeDesencriptado;	
 });
 
 btnCopiar.addEventListener("click", function(event)
@@ -42,7 +35,6 @@ function validaMinusculas(textoIngresado)
 	var resultado = true;
 	for(var i=0; i<textoIngresado.length; i++)
 	{	
-		console.log(textoIngresado[i]);
 		resultado = palabras.includes(textoIngresado[i]);
 		if(!resultado)
 	{
