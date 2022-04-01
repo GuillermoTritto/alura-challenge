@@ -1,48 +1,32 @@
 var campoTexto = document.querySelector("#input-texto");
 var encriptar = document.querySelector("#btn-encriptar");
 var desencriptar = document.querySelector("#btn-desencriptar");
-var caracterErrado = document.querySelector("#error-caracter");
 var resultado = document.querySelector("#msg");
 var btnCopiar = document.querySelector("#btn-copy");
-var caracteresAdmitidos = "qwertyuiopasd fghjklñzxcvbnm,;.:!";
-
-campoTexto.addEventListener("input", function(){
-    var entrada = this.value;
-    if (cadenaValida(entrada)) {
-        btnEncriptar.disabled = false;
-        btnDesencriptar.disabled = false;
-      caracterErrado.classList.add("invisible");
-    } else {
-        btnEncriptar.disabled = true;
-        btnDesencriptar.disabled = true;
-      caracterErrado.classList.remove("invisible");
-    }
-});
-
-function cadenaValida(inputString){
-  var validString = true;
-  for(var x=0; x<inputString.length; x++){
-      if (!caracteresAdmitidos.includes(inputString[x])) {
-        validString = false;
-      }
-    }
-  return validString;
-  }
-
-
 
 encriptar.addEventListener("click", function(event)
 {
     event.preventDefault();
+    console.log(campoTexto.value);
+     console.log(validaMinusculas(campoTexto.value));
+   if(validaMinusculas(campoTexto.value))
+{
     var mensajeEncriptado = encriptarMensaje(campoTexto.value);
+    console.log(mensajeEncriptado);
     resultado.value = mensajeEncriptado;
+}
+else alert("Solo se pueden ingresar letras minuscula");
 });
 
 desencriptar.addEventListener("click", function(event)
 {
     event.preventDefault();
+    
+
     var mensajeDesencriptado = desencriptarMensaje(campoTexto.value);
     resultado.value = mensajeDesencriptado;
+
+	
 });
 
 btnCopiar.addEventListener("click", function(event)
@@ -51,6 +35,25 @@ btnCopiar.addEventListener("click", function(event)
     copiar(resultado);
     campoTexto.value = " ";
 })
+
+function validaMinusculas(textoIngresado)
+{
+	const palabras = "q w e r t y u i o p a s d f g h j k l ñ z x c v b n m";
+	var resultado = true;
+	for(var i=0; i<textoIngresado.length; i++)
+	{	
+		console.log(textoIngresado[i]);
+		resultado = palabras.includes(textoIngresado[i]);
+		if(!resultado)
+	{
+		break;
+	}
+	}
+	return resultado;	
+}
+	
+	
+
 
 function encriptarMensaje(mensaje)
 { 
